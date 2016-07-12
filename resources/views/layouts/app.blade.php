@@ -14,6 +14,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet">
+
 
     <style>
         body {
@@ -22,83 +24,6 @@
 
         .fa-btn {
             margin-right: 6px;
-        }
-
-        /*Comment List styles*/
-        .comment-list .row {
-            margin-bottom: 0px;
-        }
-        .comment-list .panel .panel-heading {
-            padding: 4px 15px;
-            position: absolute;
-            border:none;
-            /*Panel-heading border radius*/
-            border-top-right-radius:0px;
-            top: 1px;
-        }
-        .comment-list .panel .panel-heading.right {
-            border-right-width: 0px;
-            /*Panel-heading border radius*/
-            border-top-left-radius:0px;
-            right: 16px;
-        }
-        .comment-list .panel .panel-heading .panel-body {
-            padding-top: 6px;
-        }
-        .comment-list figcaption {
-            /*For wrapping text in thumbnail*/
-            word-wrap: break-word;
-        }
-        /* Portrait tablets and medium desktops */
-        @media (min-width: 768px) {
-            .comment-list .arrow:after, .comment-list .arrow:before {
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-color: transparent;
-            }
-            .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
-                border-left: 0;
-            }
-            /*****Left Arrow*****/
-            /*Outline effect style*/
-            .comment-list .panel.arrow.left:before {
-                left: 0px;
-                top: 30px;
-                /*Use boarder color of panel*/
-                border-right-color: inherit;
-                border-width: 16px;
-            }
-            /*Background color effect*/
-            .comment-list .panel.arrow.left:after {
-                left: 1px;
-                top: 31px;
-                /*Change for different outline color*/
-                border-right-color: #FFFFFF;
-                border-width: 15px;
-            }
-            /*****Right Arrow*****/
-            /*Outline effect style*/
-            .comment-list .panel.arrow.right:before {
-                right: -16px;
-                top: 30px;
-                /*Use boarder color of panel*/
-                border-left-color: inherit;
-                border-width: 16px;
-            }
-            /*Background color effect*/
-            .comment-list .panel.arrow.right:after {
-                right: -14px;
-                top: 31px;
-                /*Change for different outline color*/
-                border-left-color: #FFFFFF;
-                border-width: 15px;
-            }
-        }
-        .comment-list .comment-post {
-            margin-top: 6px;
         }
     </style>
 </head>
@@ -150,11 +75,24 @@
         </div>
     </nav>
 
+    <div class="container">
+        @include('flash::message')
+    </div>
+
     @yield('content')
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="{{URL::asset('js/summernote.min.js')}}"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('.summernote').summernote({
+                height: 200
+            });
+        });
+    </script>
 </body>
 </html>

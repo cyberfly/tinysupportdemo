@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Helpdesk;
+use App\Http\Controllers\Controller;
 
 use App\Category;
 use App\Events\TicketCreated;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 
 
-class TicketsController extends Controller
+class HelpdeskTicketsController extends Controller
 {
     public function __construct(Request $request)
     {

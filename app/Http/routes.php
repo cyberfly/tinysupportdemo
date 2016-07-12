@@ -20,3 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 Route::post('tickets/comment/{tickets}','TicketsController@storeComment')->name('tickets.storeComment');
 Route::resource('tickets','TicketsController');
+
+Route::group(['prefix' => 'helpdesk'], function () {
+    Route::resource('tickets','Helpdesk\HelpdeskTicketsController');
+});
+
