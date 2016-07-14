@@ -64,9 +64,8 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        $categories = Category::lists('category_name','id');
-        $categories = [''=>'Select Category'] + $categories->all();
-        $priorities = Priority::lists('priority_name','id');
+        $categories = $this->getCategoriesSelect();
+        $categories = $this->getPrioritiesSelect();
 
         return view('tickets.create',compact('categories','priorities'));
     }
@@ -135,9 +134,8 @@ class TicketsController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::lists('category_name','id');
-        $categories = [''=>'Select Category'] + $categories->all();
-        $priorities = Priority::lists('priority_name','id');
+        $categories = $this->getCategoriesSelect();
+        $categories = $this->getPrioritiesSelect();
 
         $ticket = Ticket::findOrFail($id);
 
@@ -155,8 +153,6 @@ class TicketsController extends Controller
     {
         $ticket = Ticket::findOrFail($id);
         $ticket->update($request->all());
-//        $ticket->fill($request->all());
-//        $ticket->save();
 
         //perform upload file if has input
 

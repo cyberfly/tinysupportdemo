@@ -7,7 +7,7 @@ use App\Priority;
 
 trait DynamicSelect{
 
-    public function getCategories()
+    public function getCategoriesSelect()
     {
         $categories = Category::lists('category_name','id');
         $categories = [''=>'Select Category'] + $categories->all();
@@ -15,9 +15,11 @@ trait DynamicSelect{
         return $categories;
     }
 
-    public function getPriorities()
+    public function getPrioritiesSelect()
     {
         $priorities = Priority::lists('priority_name','id');
+        $priorities = [''=>'Select Priority'] + $priorities->all();
+
         return $priorities;
     }
 
