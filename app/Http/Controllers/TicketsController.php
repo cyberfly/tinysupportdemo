@@ -65,7 +65,7 @@ class TicketsController extends Controller
     public function create()
     {
         $categories = $this->getCategoriesSelect();
-        $categories = $this->getPrioritiesSelect();
+        $priorities = $this->getPrioritiesSelect();
 
         return view('tickets.create',compact('categories','priorities'));
     }
@@ -135,7 +135,7 @@ class TicketsController extends Controller
     public function edit($id)
     {
         $categories = $this->getCategoriesSelect();
-        $categories = $this->getPrioritiesSelect();
+        $priorities = $this->getPrioritiesSelect();
 
         $ticket = Ticket::findOrFail($id);
 

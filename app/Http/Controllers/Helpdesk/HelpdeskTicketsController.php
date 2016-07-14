@@ -65,12 +65,8 @@ class HelpdeskTicketsController extends Controller
      */
     public function create()
     {
-//        $categories = Category::lists('category_name','id');
-//        $categories = [''=>'Select Category'] + $categories->all();
-//        $priorities = Priority::lists('priority_name','id');
-
-        $categories = $this->getCategories();
-        $priorities = $this->getCategories();
+        $categories = $this->getCategoriesSelect();
+        $priorities = $this->getPrioritiesSelect();
         
         return view('tickets.create',compact('categories','priorities'));
     }
@@ -139,12 +135,8 @@ class HelpdeskTicketsController extends Controller
      */
     public function edit($id)
     {
-//        $categories = Category::lists('category_name','id');
-//        $categories = [''=>'Select Category'] + $categories->all();
-//        $priorities = Priority::lists('priority_name','id');
-
-        $categories = $this->getCategories();
-        $priorities = $this->getCategories();
+        $categories = $this->getCategoriesSelect();
+        $priorities = $this->getPrioritiesSelect();
 
         $ticket = Ticket::findOrFail($id);
 

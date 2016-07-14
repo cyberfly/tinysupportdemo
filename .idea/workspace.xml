@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d54922-50ae-4dd7-af2a-07defcebaab9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TicketsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TicketsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Traits/DynamicSelect.php" afterPath="$PROJECT_DIR$/app/Http/Traits/DynamicSelect.php" />
     </list>
     <ignored path="tinysupport2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TicketsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TicketsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TicketsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1340">
-              <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+            <state relative-caret-position="892">
+              <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+              <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
@@ -83,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelpdeskTicketsController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HelpdeskTicketsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+            <state relative-caret-position="2728">
+              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
               <folding>
                 <element signature="e#48#84#0#PHP" expanded="true" />
               </folding>
@@ -172,7 +173,6 @@
         <option value="$PROJECT_DIR$/resources/views/helpdesk/tickets/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tickets/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Traits/CategoryTrait.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_07_13_075156_entrust_setup_tables.php" />
@@ -185,6 +185,7 @@
         <option value="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/RolesTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Traits/DynamicSelect.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TicketsController.php" />
       </list>
     </option>
@@ -500,7 +501,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="Ticket&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Controllers/TicketsController.php&#10;Dyna&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Traits/DynamicSelect.php&#10;.env&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/.env&#10;conf/a&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;conf/ap&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;composer&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/composer.json&#10;edit&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/edit.blade.php&#10;create&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;routes&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/routes.php&#10;showb&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/show.blade.php&#10;createb&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;app.b&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/layouts/app.blade.php&#10;app&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;conf/app&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;Event&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Providers/EventServiceProvider.php&#10;User&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/User.php&#10;show&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/show.blade.php&#10;appb&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/layouts/app.blade.php&#10;Creat&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;user.php&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/User.php&#10;create.bla&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;TicketCon&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Controllers/TicketsController.php&#10;index.b&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/index.blade.php&#10;add_fie&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/database/migrations/2016_06_25_032835_add_fields_to_tickets.php&#10;composer.j&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/composer.json&#10;route&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/routes.php" />
+    <property name="SearchEverywhereHistoryKey" value="Hel&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php&#10;Ticket&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Controllers/TicketsController.php&#10;Dyna&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Traits/DynamicSelect.php&#10;.env&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/.env&#10;conf/a&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;conf/ap&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;composer&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/composer.json&#10;edit&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/edit.blade.php&#10;create&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;routes&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/routes.php&#10;showb&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/show.blade.php&#10;createb&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;app.b&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/layouts/app.blade.php&#10;app&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;conf/app&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/config/app.php&#10;Event&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Providers/EventServiceProvider.php&#10;User&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/User.php&#10;show&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/show.blade.php&#10;appb&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/layouts/app.blade.php&#10;Creat&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;user.php&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/User.php&#10;create.bla&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/create.blade.php&#10;TicketCon&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/Controllers/TicketsController.php&#10;index.b&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/resources/views/tickets/index.blade.php&#10;add_fie&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/database/migrations/2016_06_25_032835_add_fields_to_tickets.php&#10;composer.j&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/composer.json&#10;route&#9;FILE&#9;file:///Users/applehorizons/Development/tinysupport2/app/Http/routes.php" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
@@ -557,12 +558,12 @@
       <option name="presentableId" value="Default" />
       <updated>1466775944634</updated>
       <workItem from="1466775945952" duration="52303000" />
-      <workItem from="1468289273982" duration="17549000" />
+      <workItem from="1468289273982" duration="17847000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69852000" />
+    <option name="totallyTimeSpent" value="70150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -955,16 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/ModelFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -1011,10 +1002,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TicketsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1340">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+        <state relative-caret-position="892">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+          <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Helpdesk/HelpdeskTicketsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2728">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+          <folding>
+            <element signature="e#48#84#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
