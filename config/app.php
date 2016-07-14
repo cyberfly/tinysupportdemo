@@ -160,6 +160,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+
     ],
 
     /*
@@ -209,6 +211,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'ViewHelper' => App\Helpers\ViewHelper::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+
     ],
 
 ];

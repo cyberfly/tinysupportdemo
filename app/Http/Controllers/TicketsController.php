@@ -9,6 +9,7 @@ use App\Events\TicketUpdated;
 use App\Http\Requests\CreateCommentRequest;
 use App\Http\Requests\CreateTicketRequest;
 use App\Http\Requests\EditTicketRequest;
+use App\Http\Traits\DynamicSelect;
 use App\Priority;
 use App\Ticket;
 use App\TicketAttachment;
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Event;
 
 class TicketsController extends Controller
 {
+    use DynamicSelect;
+
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -64,7 +67,7 @@ class TicketsController extends Controller
         $categories = Category::lists('category_name','id');
         $categories = [''=>'Select Category'] + $categories->all();
         $priorities = Priority::lists('priority_name','id');
-        
+
         return view('tickets.create',compact('categories','priorities'));
     }
 

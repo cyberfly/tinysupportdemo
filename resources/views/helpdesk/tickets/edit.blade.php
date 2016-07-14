@@ -36,7 +36,7 @@
 
                             <label class="col-sm-2 control-label">Description <span class="symbol required"> * </span> </label>
                             <div class="col-sm-10">
-                                {!! Form::textarea('ticket_description',$ticket->ticket_description,['class'=>'form-control']) !!}
+                                {!! Form::textarea('ticket_description',$ticket->ticket_description,['class'=>'form-control summernote']) !!}
                                 <p class="text-danger">{{ $errors->first('ticket_description') }}</p>
                             </div>
 
