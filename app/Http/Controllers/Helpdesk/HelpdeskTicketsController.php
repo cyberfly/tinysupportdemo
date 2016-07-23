@@ -55,7 +55,7 @@ class HelpdeskTicketsController extends Controller
 
         $tickets = $tickets->orderBy('id','desc')->paginate(10);
 
-        return view('tickets.index',compact('tickets','pending_count','open_count','solved_count'));
+        return view('helpdesk.tickets.index',compact('tickets','pending_count','open_count','solved_count'));
     }
 
     /**
@@ -68,7 +68,7 @@ class HelpdeskTicketsController extends Controller
         $categories = $this->getCategoriesSelect();
         $priorities = $this->getPrioritiesSelect();
         
-        return view('tickets.create',compact('categories','priorities'));
+        return view('helpdesk.tickets.create',compact('categories','priorities'));
     }
 
     /**
@@ -124,7 +124,7 @@ class HelpdeskTicketsController extends Controller
     {
         $ticket = Ticket::find($id);
         $ticket_responses = $this->getTicketResponses($id);
-        return view('tickets.show',compact('ticket','ticket_responses'));
+        return view('helpdesk.tickets.show',compact('ticket','ticket_responses'));
     }
 
     /**
@@ -140,7 +140,7 @@ class HelpdeskTicketsController extends Controller
 
         $ticket = Ticket::findOrFail($id);
 
-        return view('tickets.edit',compact('ticket','categories','priorities'));
+        return view('helpdesk.tickets.edit',compact('ticket','categories','priorities'));
     }
 
     /**
@@ -154,8 +154,6 @@ class HelpdeskTicketsController extends Controller
     {
         $ticket = Ticket::findOrFail($id);
         $ticket->update($request->all());
-//        $ticket->fill($request->all());
-//        $ticket->save();
 
         //perform upload file if has input
 

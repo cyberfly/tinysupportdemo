@@ -42,62 +42,11 @@
 
                         {!! Form::open(['class' => 'form-horizontal']) !!}
 
-                        <div class="form-group">
-
-                            {!! Form::label('ticket_subject', 'Subject', ['class' => 'col-sm-2 control-label']) !!}
-                            <div class="col-sm-10">
-                                {!! Form::text('ticket_subject',$ticket->ticket_subject,['class'=>'form-control','readonly'=>'readonly']) !!}
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            {!! Form::label('category_id', 'Category', ['class' => 'col-sm-2 control-label']) !!}
-                            <div class="col-sm-4">
-                                {!! Form::text('category_id',$ticket->category->category_name,['class'=>'form-control','readonly'=>'readonly']) !!}
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            {!! Form::label('ticket_description', 'Description', ['class' => 'col-sm-2 control-label']) !!}
-                            <div class="col-sm-10">
-                                {!! $ticket->ticket_description !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            {!! Form::label('file_attachment', 'File Attachment', ['class' => 'col-sm-2 control-label']) !!}
-                            <div class="col-sm-10">
-
-                                <ul>
-                                @foreach($ticket->attachments as $attachment)
-
-                                    <li><a href="{{ url('uploads/'.$attachment->attachment_filename) }}">{{ $attachment->attachment_filename }}</a></li>
-
-                                @endforeach
-                                </ul>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group ">
-
-                            {!! Form::label('priority_id', 'Priority', ['class' => 'col-sm-2 control-label']) !!}
-                            <div class="col-sm-4">
-                                {!! Form::text('priority_id',$ticket->priority->priority_name,['class'=>'form-control','readonly'=>'readonly']) !!}
-
-
-                            </div>
-                        </div>
+                        @include('tickets.partials.show_fields')
 
                         <div class="form-group">
                             <div class="col-sm-10 col-sm-push-2">
-                                <a href="{!! route('tickets.index') !!}" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+                                <a href="{!! route('helpdesk.tickets.index') !!}" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
                             </div>
 
                         </div>
@@ -113,7 +62,7 @@
             <div class="col-md-12">
                 <h2 class="page-header">New Response</h2>
 
-                {!! Form::open(['route' => ['tickets.storeComment',$ticket->id],'class' => 'form-horizontal']) !!}
+                {!! Form::open(['route' => ['helpdesk.tickets.storeComment',$ticket->id],'class' => 'form-horizontal']) !!}
 
                 <div class="form-group  {{ $errors->has('response_description') ? 'has-error' : false }}">
 
@@ -135,20 +84,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="page-header">Discussion</h2>
-                <section class="comment-list">
-
-                    @foreach($ticket_responses as $response)
-
-                        {!! ViewHelper::showCommentBox($ticket,$response) !!}
-
-                    @endforeach
-
-                </section>
-            </div>
-        </div>
+        @include('tickets.partials.response_list')
 
     </div>
 

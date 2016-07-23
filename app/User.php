@@ -31,8 +31,18 @@ class User extends Authenticatable
         return $this->hasMany('App\Ticket');
     }
 
+    public function helpdesk_manage_tickets()
+    {
+        return $this->hasMany('App\Ticket','helpdesk_user_id','id');
+    }
+
     public function ticketResponses()
     {
         return $this->hasMany('App\TicketResponse','user_id','id');
+    }
+
+    public function helpdesk_categories()
+    {
+        return $this->belongsToMany('App\Category','helpdesk_category');
     }
 }

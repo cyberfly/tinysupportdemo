@@ -50,7 +50,19 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+
+                    @permission('manage_ticket')
+
                     <li><a href="{{ route('tickets.index') }}">Tickets</a></li>
+
+                    @endpermission
+
+                    @permission('helpdesk_manage_ticket')
+
+                    <li><a href="{{ route('helpdesk.tickets.index') }}">Tickets</a></li>
+
+                    @endpermission
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

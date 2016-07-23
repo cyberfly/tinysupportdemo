@@ -10,7 +10,7 @@
 
                     <div class="panel-body">
 
-                        <a href="{!! route('tickets.create') !!}" class="btn btn-primary">Submit New Ticket</a>
+                        <a href="{!! route('helpdesk.tickets.create') !!}" class="btn btn-primary">Submit New Ticket</a>
 
                     </div>
 
@@ -53,7 +53,7 @@
                                 <tr>
                                     <td>{{ $ticket->id }}</td>
                                     <td>
-                                        <a href="{!! route('tickets.show',$ticket->id); !!}">{{ $ticket->ticket_subject }}</a>
+                                        <a href="{!! route('helpdesk.tickets.show',$ticket->id); !!}">{{ $ticket->ticket_subject }}</a>
                                     </td>
                                     <td>
                                         {!! $ticket->status_label !!}
@@ -61,7 +61,7 @@
                                     <td>{{ $ticket->priority->priority_name }}</td>
                                     <td>{{ $ticket->category->category_name }}</td>
                                     <td>
-                                        <a href="{!! route('tickets.show',$ticket->id); !!}" class="btn btn-default btn-xs" >Response <span class="badge">{{ $ticket->responses->count() }}</span></a>
+                                        <a href="{!! route('helpdesk.tickets.show',$ticket->id); !!}" class="btn btn-default btn-xs" >Response <span class="badge">{{ $ticket->responses->count() }}</span></a>
                                     </td>
                                     <td>
                                         {{ $ticket->lastResponse->user->name or '-'  }}
@@ -69,10 +69,10 @@
                                         {{ $ticket->lastResponse->time_ago or '' }}
                                     </td>
                                     <td>
-                                        <a href="{!! route('tickets.show',$ticket->id) !!}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
+                                        <a href="{!! route('helpdesk.tickets.show',$ticket->id) !!}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
 
                                         @if($ticket->status_id==1)
-                                            <a href="{!! route('tickets.edit',$ticket->id) !!}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            <a href="{!! route('helpdesk.tickets.edit',$ticket->id) !!}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                                         @endif
                                     </td>
                                     {{--<td>{{ $ticket->last_response_by->user_id or '-' }}</td>--}}
