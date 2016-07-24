@@ -11,6 +11,9 @@ use App\Http\Requests\CreateCommentRequest;
 use App\Http\Requests\CreateTicketRequest;
 use App\Http\Requests\EditTicketRequest;
 use App\Http\Traits\DynamicSelect;
+use App\Jobs\StoreComment;
+use App\Jobs\StoreTicket;
+use App\Jobs\UpdateTicket;
 use App\Priority;
 use App\Ticket;
 use App\TicketAttachment;
@@ -39,17 +42,14 @@ class HelpdeskTicketsController extends Controller
      */
     public function index()
     {
-//        $tickets = Ticket::with('category','priority','lastResponse');
-//        $tickets = Ticket::with('category','priority','lastResponse')->orderBy('id','desc')->paginate(10);
-        $pending_count = Auth::user()->tickets()->where('status_id','1')->count();
-        $open_count = Auth::user()->tickets()->where('status_id','2')->count();
-        $solved_count = Auth::user()->tickets()->where('status_id','3')->count();
+        $pending_count = Ticket::where('helpdesk_user_id',Auth::user()->id)->where('status_id','1')->count();
+        $open_count = Ticket::where('helpdesk_user_id',Auth::user()->id)->where('status_id','2')->count();
+        $solved_count = Ticket::where('helpdesk_user_id',Auth::user()->id)->where('status_id','3')->count();
 
-        $tickets = Auth::user()->tickets()->with('category','priority','lastResponse');
+        $tickets = Ticket::with('category','priority','lastResponse')->where('helpdesk_user_id',Auth::user()->id);
 
         if (!empty($this->request->status))
         {
-//            dd($this->request->status);
             $tickets = $tickets->whereStatusId($this->request->status);
         }
 
@@ -67,8 +67,9 @@ class HelpdeskTicketsController extends Controller
     {
         $categories = $this->getCategoriesSelect();
         $priorities = $this->getPrioritiesSelect();
+        $customers = $this->getCustomersSelect();
         
-        return view('helpdesk.tickets.create',compact('categories','priorities'));
+        return view('helpdesk.tickets.create',compact('categories','priorities','customers'));
     }
 
     /**
@@ -79,39 +80,11 @@ class HelpdeskTicketsController extends Controller
      */
     public function store(CreateTicketRequest $request)
     {
-        $input_data = $request->all();
-        $input_data['status_id'] = 1;
-        $input_data['user_id'] = Auth::user()->id;
-        $ticket = Ticket::create($input_data);
+        $this->dispatch(new StoreTicket($request,$on_user_behalf='Y'));
 
-        //perform upload file if has input
-
-        if ($request->hasFile('file_attachment') && $request->file('file_attachment')->isValid()) {
-
-            //rename file to make it unique
-            $fileName = $ticket->id.'-'.$request->file('file_attachment')->getClientOriginalName();
-
-            //set destination path
-            $destinationPath = base_path() . '/public/uploads/';
-
-            //pindah upload gambar ke destination baru
-            $request->file('file_attachment')->move($destinationPath, $fileName);
-            $ticket_attachment = new TicketAttachment();
-            $ticket_attachment->attachment_filename = $fileName;
-            //save polymorphism
-            $ticket->attachments()->save($ticket_attachment);
-
-        }
-
-        //save activity log
-
-        //send email
-
-        Event::fire(new TicketCreated($ticket));
-        
         flash('Your ticket was successfully submitted','success');
 
-        return redirect(route('tickets.index'));
+        return redirect(route('helpdesk.tickets.index'));
     }
 
     /**
@@ -152,33 +125,7 @@ class HelpdeskTicketsController extends Controller
      */
     public function update(EditTicketRequest $request, $id)
     {
-        $ticket = Ticket::findOrFail($id);
-        $ticket->update($request->all());
-
-        //perform upload file if has input
-
-        if ($request->hasFile('file_attachment') && $request->file('file_attachment')->isValid()) {
-
-            //rename file to make it unique
-            $fileName = $ticket->id.'-'.$request->file('file_attachment')->getClientOriginalName();
-
-            //set destination path
-            $destinationPath = base_path() . '/public/uploads/';
-
-            //pindah upload gambar ke destination baru
-            $request->file('file_attachment')->move($destinationPath, $fileName);
-            $ticket_attachment = new TicketAttachment();
-            $ticket_attachment->attachment_filename = $fileName;
-            //save polymorphism
-            $ticket->attachments()->save($ticket_attachment);
-
-        }
-
-        //save activity log
-
-        //send email
-
-        Event::fire(new TicketUpdated($ticket));
+        $this->dispatch(new UpdateTicket($request,$id));
 
         flash('Your ticket was successfully updated','success');
 
@@ -194,13 +141,7 @@ class HelpdeskTicketsController extends Controller
      */
     public function storeComment(CreateCommentRequest $request, $id)
     {
-        $ticketResponse = new TicketResponse;
-        $ticketResponse->response_description = $request->response_description;
-        $ticketResponse->ticket_id = $id;
-        $ticketResponse->status_id = 1;
-        Auth::user()->ticketResponses()->save($ticketResponse);
-
-        Event::fire(new TicketResponseCreated($ticket));
+        $this->dispatch(new StoreComment($request,$id));
 
         flash('Your response was successfully submitted','success');
 
@@ -215,7 +156,12 @@ class HelpdeskTicketsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ticket = Ticket::findOrFail($id);
+        $ticket->delete();
+
+        flash('The ticket has been succesfully deleted','success');
+
+        return back();
     }
 
     private function getTicketResponses($id)

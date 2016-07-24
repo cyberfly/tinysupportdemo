@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ticket extends Model
 {
+    use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -33,6 +36,11 @@ class Ticket extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function helpdesk_user()
+    {
+        return $this->belongsTo('App\User','helpdesk_user_id','id');
     }
 
     public function category()

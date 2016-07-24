@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <p>
-                                        Assigned To :
+                                        Assigned To : {{ $ticket->helpdesk_user->name or '-' }}
                                     </p>
                                     <p>
                                         Created : {{ $ticket->created_at->diffForHumans() }}

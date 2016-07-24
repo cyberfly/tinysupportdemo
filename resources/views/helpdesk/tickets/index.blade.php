@@ -20,9 +20,9 @@
 
                     <div class="panel-body">
                         <ul class="nav nav-pills" role="tablist">
-                            <li role="presentation"><a href="{{ url('tickets?status=1') }}">Pending <span class="badge">{{ $pending_count }}</span></a></li>
-                            <li role="presentation"><a href="{{ url('tickets?status=2') }}">Open <span class="badge">{{ $open_count }}</span></a></li>
-                            <li role="presentation"><a href="{{ url('tickets?status=3') }}">Solved <span class="badge">{{ $solved_count }}</span></a></li>
+                            <li role="presentation"><a href="{{ url('helpdesk/tickets?status=1') }}">Pending <span class="badge">{{ $pending_count }}</span></a></li>
+                            <li role="presentation"><a href="{{ url('helpdesk/tickets?status=2') }}">Open <span class="badge">{{ $open_count }}</span></a></li>
+                            <li role="presentation"><a href="{{ url('helpdesk/tickets?status=3') }}">Solved <span class="badge">{{ $solved_count }}</span></a></li>
                         </ul>
                     </div>
 
@@ -69,14 +69,22 @@
                                         {{ $ticket->lastResponse->time_ago or '' }}
                                     </td>
                                     <td>
+
+                                        {!! Form::open(['route' => ['helpdesk.tickets.destroy',$ticket->id], 'method' => 'DELETE']) !!}
+
                                         <a href="{!! route('helpdesk.tickets.show',$ticket->id) !!}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a>
 
                                         @if($ticket->status_id==1)
+
                                             <a href="{!! route('helpdesk.tickets.edit',$ticket->id) !!}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+
+                                            <button type="button" class="btn btn-danger btn-xs delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+
                                         @endif
+
+                                        {!! Form::close() !!}
+
                                     </td>
-                                    {{--<td>{{ $ticket->last_response_by->user_id or '-' }}</td>--}}
-                                    {{--<td>{{ $ticket->responses->last()  }}</td>--}}
                                 </tr>
 
                             @endforeach

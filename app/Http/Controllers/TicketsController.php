@@ -199,7 +199,7 @@ class TicketsController extends Controller
         $ticketResponse->status_id = 1;
         Auth::user()->ticketResponses()->save($ticketResponse);
 
-        Event::fire(new TicketResponseCreated($ticket));
+        Event::fire(new TicketResponseCreated($ticketResponse));
 
         flash('Your response was successfully submitted','success');
 

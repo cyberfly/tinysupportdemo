@@ -22,6 +22,7 @@ Route::post('tickets/comment/{tickets}','TicketsController@storeComment')->name(
 Route::resource('tickets','TicketsController');
 
 Route::group(['prefix' => 'helpdesk'], function () {
+    Route::post('helpdesk/tickets/comment/{tickets}','Helpdesk\HelpdeskTicketsController@storeComment')->name('helpdesk.tickets.storeComment');
     Route::resource('tickets','Helpdesk\HelpdeskTicketsController');
 });
 

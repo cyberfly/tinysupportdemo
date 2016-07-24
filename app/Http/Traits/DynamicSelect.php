@@ -4,6 +4,8 @@ namespace App\Http\Traits;
 
 use App\Category;
 use App\Priority;
+use App\Role;
+use App\User;
 
 trait DynamicSelect{
 
@@ -21,6 +23,20 @@ trait DynamicSelect{
         $priorities = [''=>'Select Priority'] + $priorities->all();
 
         return $priorities;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCustomersSelect()
+    {
+//        $customers = Role::where('name', 'members')->users()->get();
+//        $role = Role::find(3)->users()->get();
+
+        $customers = User::lists('name','id');
+        $customers = [''=>'Select Customer'] + $customers->all();
+
+        return $customers;
     }
 
 }
